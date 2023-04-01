@@ -27,10 +27,10 @@ function TodoList() {
   };
 
   const updateTodo = (todoId, newValue) => {
-    if (!todo.text || /^\s*$/.test(todo.text)) {
+    if (!newValue.text || /^\s*$/.test(newValue.text)) {
       return
     }
-    setTodos(prev => prev.map(item=>(item.id===todoId)))
+    setTodos(prev => prev.map(item=>(item.id===todoId ? newValue:item)))
   } 
 
   const removeTodo = id => {
@@ -41,12 +41,14 @@ function TodoList() {
   
   return (
     <div>
-      <h2>What's the plan?</h2>
+      <h2 className="text-2xl font-medium mb-12 mt-24 text-left ml-12">What's the plan?</h2>
       <TodoForm onSubmit={addTodo}/>
       <Todo
       todos={todos}
       completeTodo={completeTodo}
-      removeTodo={removeTodo}/>
+      removeTodo={removeTodo}
+      updateTodo={updateTodo}
+      />
       
     </div>
   )

@@ -20,7 +20,7 @@ function App() {
             <Route path='/notes' exact element={<Notes/>}></Route>
           </Routes>
       </BrowserRouter>
-      <TodoList/>
+      <TodoList className=""/>
     </div>
   );
 }

@@ -1,7 +1,13 @@
-import React, {useState,useEffect, useRef} from 'react'
+import React, {useState, useEffect, useRef} from 'react'
 
 function TodoForm(props){
     const [input, setInput] = useState('');
+
+    const inputRef = useRef(null);
+
+    useEffect(() => {
+      inputRef.current.focus();
+    });
 
     const handleSubmit = e=> {
       e.preventDefault();
@@ -17,14 +23,17 @@ function TodoForm(props){
     }
   return (
     <div>
-      <form className='todo-form' onSubmit={handleSubmit}>
+      <form className='todo-form text-left ml-12' onSubmit={handleSubmit}>
         <input
-        type="text" 
-        placeholder='Add a todo' 
-        value={input}
-        name="text"
-        onChange={handleChange}/>
-      <button>Add Todo</button>
+          placeholder='Add a todo'
+          value={input}
+          onChange={handleChange}
+          name='text'
+          className='todo-input'
+          ref={inputRef}
+        />
+
+      <button className = "text-md p-2  ml-4 bg-[#0048AB] text-white rounded-xl">Add Todo</button>
       </form>
     </div>
 
