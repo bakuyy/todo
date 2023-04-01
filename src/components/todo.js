@@ -18,7 +18,7 @@ function Todo({todos, completeTodo, removeTodo, updateTodo}) {
     })
   }
   if(edit.id) {
-    return <TodoForm className="text-left" edit={edit} onSubmit={submitUpdate}/>
+    return <TodoForm className="text-left " edit={edit} onSubmit={submitUpdate}/>
   }
 
   return todos.map((todo, index) => (
@@ -31,7 +31,7 @@ function Todo({todos, completeTodo, removeTodo, updateTodo}) {
       </div>
       <div className='icons'>
         <RiCloseCircleLine
-          className='delete-icon width-6'
+          className='delete-icon'
           onClick={()=>removeTodo(todo.id)}
         />
       <TiEdit 

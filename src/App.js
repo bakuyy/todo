@@ -21,6 +21,7 @@ function App() {
           </Routes>
       </BrowserRouter>
       <TodoList className=""/>
+      <div className="mb-96"></div>
     </div>
   );
 }
